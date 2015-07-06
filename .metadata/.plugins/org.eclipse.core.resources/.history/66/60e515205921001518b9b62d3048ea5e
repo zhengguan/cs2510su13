@@ -1,0 +1,12 @@
+// EX 4
+
+// REPRESENTS: complex number 
+class Complex {
+	int real; // real part
+	int imag; // imagine part
+	
+	Complex(int real, int imag) {
+		this.real = real;
+		this.imag = imag;
+	}
+}
