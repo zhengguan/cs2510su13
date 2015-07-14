@@ -9,7 +9,10 @@
 <fullyQualifiedTypeName name="MTLoComplex"/>
 <fullyQualifiedTypeName name="ILoComplex"/>
 <fullyQualifiedTypeName name="ConsLoComplex"/>
-<fullyQualifiedTypeName name="tester.Tester"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="Complex"/>
+<fullyQualifiedTypeName name="tester.Tester"/>
+<fullyQualifiedTypeName name="ILife"/>
+<fullyQualifiedTypeName name="TextingWhileDriving"/>
+<fullyQualifiedTypeName name="AtFriendHouse"/>
 </qualifiedTypeNameHistroy>
