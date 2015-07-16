@@ -78,9 +78,9 @@ class Die extends Life {
 	}
 	
 	// RETURNS: the number of dicisions can make if always answers no
-	public int dicisionsAlwaysAnswerNo() {
-		return 0;
-	}
+//	public int dicisionsAlwaysAnswerNo() {
+//		return 0;
+//	}
 }
 
 // REPRESENTS: the state of on train
@@ -164,6 +164,6 @@ class ILifeExamples {
 		return
 		t.checkExpect(die.dicisionsAlwaysAnswerNo(), 0) &&
 		t.checkExpect(onTrack.dicisionsAlwaysAnswerNo(), 1) &&
-		t.checkExpect(textingWhileDriving.dicisionsAlwaysAnswerNo(), 1);
+		t.checkExpect(textingWhileDriving.dicisionsAlwaysAnswerNo(), 3);
 	}
 }

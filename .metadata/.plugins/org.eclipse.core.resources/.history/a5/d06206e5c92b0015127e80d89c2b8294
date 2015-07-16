@@ -164,6 +164,6 @@ class ILifeExamples {
 		return
 		t.checkExpect(die.dicisionsAlwaysAnswerNo(), 0) &&
 		t.checkExpect(onTrack.dicisionsAlwaysAnswerNo(), 1) &&
-		t.checkExpect(textingWhileDriving.dicisionsAlwaysAnswerNo(), 1);
+		t.checkExpect(textingWhileDriving.dicisionsAlwaysAnswerNo(), 3);
 	}
 }
