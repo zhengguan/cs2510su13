@@ -12,7 +12,8 @@
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="Complex"/>
 <fullyQualifiedTypeName name="tester.Tester"/>
-<fullyQualifiedTypeName name="ILife"/>
 <fullyQualifiedTypeName name="TextingWhileDriving"/>
+<fullyQualifiedTypeName name="ILife"/>
+<fullyQualifiedTypeName name="Life"/>
 <fullyQualifiedTypeName name="AtFriendHouse"/>
 </qualifiedTypeNameHistroy>

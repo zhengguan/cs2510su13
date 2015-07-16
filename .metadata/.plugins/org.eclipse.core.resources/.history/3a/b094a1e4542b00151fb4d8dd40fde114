@@ -19,11 +19,7 @@ class TextingWhileDriving implements ILife {
 	
 }
 
-class AtFriendHouse extends Life {
-	
-}
-
-abstract class Life implements ILife {
+class AtFriendHouse implements ILife {
 	
 }
 
@@ -33,7 +29,6 @@ class ILifeExamples {
 	ILife onTrain = new OnTrain();
 	ILife textingWhileDriving = new TextingWhileDriving();
 	ILife atFriendHouse = new AtFriendHouse();
-	Life life = new AtFriendHouse();
 	
 	// Ex 07
 	// RETURNS: the least number of decisions one can make before die
