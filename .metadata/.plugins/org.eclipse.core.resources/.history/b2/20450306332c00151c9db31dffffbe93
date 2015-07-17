@@ -16,24 +16,15 @@ interface ILife {
 	// RETURNS: the number of dicisions can make if always answers yes
 	int dicisionsAlwaysAnswerYes();
 	
-	// RETURNS: the number of dicisions can make if always answers the given 
-	// value
-	public int dicisionsAlwaysAnswer(boolean answer);
-	
 	// RETURNS: the number of dicisions can make if always answers no
 	int dicisionsAlwaysAnswerNo();	
 	
 	// RETURNS: the number of dicisions can make if answers alternating 
-	// between "yes" and "no" (start with yes)
-	// STRATEGY: Template and hook pattern
+	// between yes and no (start with yes)
 	int dicisionsAlternateAnswer(boolean choice);
 	
-	// RETURNS: the list of questions one will face if always answer "yes"
+	// RETURNS: a list of question if always answer yes
 	ILoQuestion questionAnswerYes();
-	
-	// RETURNS: the list questions on will face if always alternate between
-	// "yes" and "no" (start from yes);
-	ILoQuestion questionAlternateAnswer(boolean choice);
 }
 
 abstract class Life implements ILife{
@@ -54,40 +45,33 @@ abstract class Life implements ILife{
 	
 	// RETURNS: the number of dicisions can make if always answers yes
 	public int dicisionsAlwaysAnswerYes() {
-		return this.dicisionsAlwaysAnswer(true);
+		return 1 + this.choose(true).dicisionsAlwaysAnswerYes();
 	}
 	
 	// RETURNS: the number of dicisions can make if always answers no
 	public int dicisionsAlwaysAnswerNo() {
-		return this.dicisionsAlwaysAnswer(false);
+		return 1 + this.choose(false).dicisionsAlwaysAnswerNo();
 	}
 	
 	// RETURNS: the number of dicisions can make if always answers the given 
 	// value
-	public int dicisionsAlwaysAnswer(boolean answer) {
-		return 1 + this.choose(answer).dicisionsAlwaysAnswer(answer);
-	}
+//	public int dicisionsAlwaysAnswer(boolean answer) {
+//		return 1 + this.dicisionsAlwaysAnswer(answer);
+//	}
 	
 	// RETURNS: the number of dicisions can make if answers alternating 
-	// between "yes" and "no" (start with yes)
+	// between yes and no (start with yes)
 	public int dicisionsAlternateAnswer(boolean choice) {
 		return 1 + this.choose(choice).dicisionsAlternateAnswer(!choice);
 	}
 	
-	// RETURNS: the list of questions one will face if always answer yes
+	// RETURNS: a list of question if always answer yes
 	public ILoQuestion questionAnswerYes() {
 		return new ConsLoQuestion(this.question(), this.choose(true).questionAnswerYes());
 	}
 	
 	// RETURNS: question of this life
 	abstract String question();
-	
-	// RETURNS: the list questions on will face if always alternate between
-	// "yes" and "no" (start from yes);
-	public ILoQuestion questionAlternateAnswer(boolean choice) {
-		return new ConsLoQuestion(this.question(), 
-				this.choose(choice).questionAlternateAnswer(!choice));
-	}
 }
 
 // REPRESENTS: the state of die
@@ -113,24 +97,18 @@ class Die extends Life {
 		return 0;
 	}
 	
-	// RETURNS: the number of dicisions can make if always answers the given 
-	// value
-	public int dicisionsAlwaysAnswer(boolean answer) {
-		return 0;
-	}
-	
 	// RETURNS: the number of dicisions can make if always answers no
 	public int dicisionsAlwaysAnswerNo() {
 		return 0;
 	}
 	
 	// RETURNS: the number of dicisions can make if answers alternating 
-	// between "yes" and "no" (start with yes)
+	// between yes and no (start with yes)
 	public int dicisionsAlternateAnswer(boolean choice) {
 		return 0;
 	}	
 	
-	// RETURNS: the list of questions one will face if always answer yes
+	// RETURNS: a list of question if always answer yes
 	public ILoQuestion questionAnswerYes() {
 		return new MTLoQuestion();
 	}
@@ -141,12 +119,6 @@ class Die extends Life {
 	public String question() {
 		return "";
 	}	
-	
-	// RETURNS: the list questions on will face if always alternate between
-	// "yes" and "no" (start from yes);
-	public ILoQuestion questionAlternateAnswer(boolean choice) {
-		return new MTLoQuestion();
-	}
 }
 
 // REPRESENTS: the state of on train
@@ -207,7 +179,7 @@ class OfferedPizza extends Life{
 	
 	// RETURNS: question of this life
 	public String question() {
-		return "Do you eat some?";
+		return "Do you go in?";
 	}
 }
 
@@ -284,27 +256,13 @@ class ILifeExamples {
 		ConsLoQuestion loq1 = 
 				new ConsLoQuestion("Do you jump into the street?", mtloq);
 		ConsLoQuestion loq2 = 
-				new ConsLoQuestion("Do you eat some?", mtloq);
+				new ConsLoQuestion("Do you eat some", mtloq);
 		ConsLoQuestion loq3 = 
-				new ConsLoQuestion("Do you go in?", loq2);
+				new ConsLoQuestion("Do you go in", loq2);
 		ConsLoQuestion loq4 = 
-				new ConsLoQuestion("Do you stop?", loq3);
+				new ConsLoQuestion("Do you stop", loq3);
 		return
 		t.checkExpect(onTrack.questionAnswerYes(), loq1) &&
 		t.checkExpect(textingWhileDriving.questionAnswerYes(), loq4);
-	}
-	
-	// tests for method questionAlternateAnswer()
-	boolean testQuestionAlternateAnswer(Tester t) {
-		MTLoQuestion mtloq = new MTLoQuestion();
-		ConsLoQuestion loq1 = 
-				new ConsLoQuestion("Do you jump into the street?", mtloq);
-		ConsLoQuestion loq2 = 
-				new ConsLoQuestion("Do you go in?", mtloq);
-		ConsLoQuestion loq3 = 
-				new ConsLoQuestion("Do you stop?", loq2);
-		return
-		t.checkExpect(onTrack.questionAlternateAnswer(true), loq1) &&
-		t.checkExpect(textingWhileDriving.questionAlternateAnswer(true), loq3);
 	}
 }

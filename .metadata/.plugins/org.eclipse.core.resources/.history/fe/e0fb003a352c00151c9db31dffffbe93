@@ -54,11 +54,13 @@ abstract class Life implements ILife{
 	
 	// RETURNS: the number of dicisions can make if always answers yes
 	public int dicisionsAlwaysAnswerYes() {
+//		return 1 + this.choose(true).dicisionsAlwaysAnswerYes();
 		return this.dicisionsAlwaysAnswer(true);
 	}
 	
 	// RETURNS: the number of dicisions can make if always answers no
 	public int dicisionsAlwaysAnswerNo() {
+//		return 1 + this.choose(false).dicisionsAlwaysAnswerNo();
 		return this.dicisionsAlwaysAnswer(false);
 	}
 	

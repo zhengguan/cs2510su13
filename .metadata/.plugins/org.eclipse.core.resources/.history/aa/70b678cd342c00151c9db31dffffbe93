@@ -16,10 +16,6 @@ interface ILife {
 	// RETURNS: the number of dicisions can make if always answers yes
 	int dicisionsAlwaysAnswerYes();
 	
-	// RETURNS: the number of dicisions can make if always answers the given 
-	// value
-	public int dicisionsAlwaysAnswer(boolean answer);
-	
 	// RETURNS: the number of dicisions can make if always answers no
 	int dicisionsAlwaysAnswerNo();	
 	
@@ -54,19 +50,19 @@ abstract class Life implements ILife{
 	
 	// RETURNS: the number of dicisions can make if always answers yes
 	public int dicisionsAlwaysAnswerYes() {
-		return this.dicisionsAlwaysAnswer(true);
+		return 1 + this.choose(true).dicisionsAlwaysAnswerYes();
 	}
 	
 	// RETURNS: the number of dicisions can make if always answers no
 	public int dicisionsAlwaysAnswerNo() {
-		return this.dicisionsAlwaysAnswer(false);
+		return 1 + this.choose(false).dicisionsAlwaysAnswerNo();
 	}
 	
 	// RETURNS: the number of dicisions can make if always answers the given 
 	// value
-	public int dicisionsAlwaysAnswer(boolean answer) {
-		return 1 + this.choose(answer).dicisionsAlwaysAnswer(answer);
-	}
+//	public int dicisionsAlwaysAnswer(boolean answer) {
+//		return 1 + this.dicisionsAlwaysAnswer(answer);
+//	}
 	
 	// RETURNS: the number of dicisions can make if answers alternating 
 	// between "yes" and "no" (start with yes)
@@ -110,12 +106,6 @@ class Die extends Life {
 	
 	// RETURNS: the number of dicisions can make if always answers yes
 	public int dicisionsAlwaysAnswerYes() {
-		return 0;
-	}
-	
-	// RETURNS: the number of dicisions can make if always answers the given 
-	// value
-	public int dicisionsAlwaysAnswer(boolean answer) {
 		return 0;
 	}
 	
