@@ -93,7 +93,7 @@
             <children xsi:type="basic:PartSashContainer" xmi:id="_Y83qnChnEeWWzOIPO2fM3Q" containerData="7500" selectedElement="_Y83qpihnEeWWzOIPO2fM3Q">
               <children xsi:type="basic:PartSashContainer" xmi:id="_Y83qnShnEeWWzOIPO2fM3Q" containerData="7500" selectedElement="_Y83qnihnEeWWzOIPO2fM3Q" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_Y83qnihnEeWWzOIPO2fM3Q" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_Y8kvoChnEeWWzOIPO2fM3Q"/>
-                <children xsi:type="basic:PartSashContainer" xmi:id="_Y83qnyhnEeWWzOIPO2fM3Q" containerData="2500">
+                <children xsi:type="basic:PartSashContainer" xmi:id="_Y83qnyhnEeWWzOIPO2fM3Q" containerData="2500" selectedElement="_Y83qoihnEeWWzOIPO2fM3Q">
                   <children xsi:type="basic:PartStack" xmi:id="_Y83qoChnEeWWzOIPO2fM3Q" elementId="org.eclipse.mylyn.tasks.ui.views.tasksMStack" containerData="5000" selectedElement="_Y83qoShnEeWWzOIPO2fM3Q">
                     <tags>newtablook</tags>
                     <children xsi:type="advanced:Placeholder" xmi:id="_Y83qoShnEeWWzOIPO2fM3Q" elementId="org.eclipse.mylyn.tasks.ui.views.tasks" ref="_Y82ccChnEeWWzOIPO2fM3Q"/>
@@ -153,7 +153,7 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_kmmt0ChnEeWWzOIPO2fM3Q" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="TreeOfLife.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TreeOfLife.java&quot; partName=&quot;TreeOfLife.java&quot; title=&quot;TreeOfLife.java&quot; tooltip=&quot;lab02/src/TreeOfLife.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/lab02/src/TreeOfLife.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;2054&quot; selectionTopPixel=&quot;741&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TreeOfLife.java&quot; partName=&quot;TreeOfLife.java&quot; title=&quot;TreeOfLife.java&quot; tooltip=&quot;lab02/src/TreeOfLife.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/lab02/src/TreeOfLife.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;4742&quot; selectionTopPixel=&quot;2413&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -275,7 +275,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_YyV1kChnEeWWzOIPO2fM3Q" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_h8AbYCwuEeWkpod6ToZmLA" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_YlaM6ihnEeWWzOIPO2fM3Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_SBRMQCxKEeWVRfbA0Xfwhw" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_YlaM6ihnEeWWzOIPO2fM3Q"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_YyV1kShnEeWWzOIPO2fM3Q" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -299,7 +299,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_YyWcoChnEeWWzOIPO2fM3Q" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_h8FT4iwuEeWkpod6ToZmLA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_YlTfOShnEeWWzOIPO2fM3Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_SBWEwyxKEeWVRfbA0Xfwhw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_YlTfOShnEeWWzOIPO2fM3Q"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_YyWcoShnEeWWzOIPO2fM3Q" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>

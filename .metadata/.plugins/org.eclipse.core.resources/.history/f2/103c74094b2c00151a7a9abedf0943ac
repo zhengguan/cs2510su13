@@ -6,10 +6,10 @@ interface ILife {
 	// RETURNS: this life after a choice
 	ILife choose(boolean choice);
 
-	// RETURNS: the minimum number of decisions one can make before dying 
+	// RETURNS: the minimum number of decisions can make before dying 
 	int minDicisionsBeforeDying();
 	
-	// RETURNS: the maximum number of decisions one can make before dying of this 
+	// RETURNS: the maximum number of decisions can make before dying of this 
 	// life
 	int maxDicisionsBeforeDying(); 
 	
@@ -37,14 +37,14 @@ interface ILife {
 }
 
 abstract class Life implements ILife{
-	// RETURNS: the minimum number of decisions one can make before dying 
+	// RETURNS: the minimum number of decisions can make before dying 
 	public int minDicisionsBeforeDying() {
 		return 1 + 
 				Math.min(this.choose(true).maxDicisionsBeforeDying(),
 						 this.choose(false).maxDicisionsBeforeDying());
 	}
 	
-	// RETURNS: the maximum number of decisions one can make before dying of this 
+	// RETURNS: the maximum number of decisions can make before dying of this 
 	// life
 	public int maxDicisionsBeforeDying() {
 		return 1 + 
@@ -97,24 +97,34 @@ class Die extends Life {
 		return this;
 	}
 	
-	// RETURNS: the minimum number of decisions one can make before dying 
+	// RETURNS: the minimum number of decisions can make before dying 
 	public int minDicisionsBeforeDying() {
 		return 0;
 	}
 	
-	// RETURNS: the maximum number of decisions one can make before dying of this 
+	// RETURNS: the maximum number of decisions can make before dying of this 
 	// life
 	public int maxDicisionsBeforeDying() {
 		return 0;
 	}
 	
-	// RETURNS: the number of decisions one can make if always answers the given 
+	// RETURNS: the number of dicisions can make if always answers yes
+//	public int dicisionsAlwaysAnswerYes() {
+//		return 0;
+//	}
+	
+	// RETURNS: the number of dicisions can make if always answers the given 
 	// value
 	public int dicisionsAlwaysAnswer(boolean answer) {
 		return 0;
 	}
 	
-	// RETURNS: the number of decisions one can make if answers alternating 
+	// RETURNS: the number of dicisions can make if always answers no
+//	public int dicisionsAlwaysAnswerNo() {
+//		return 0;
+//	}
+	
+	// RETURNS: the number of dicisions can make if answers alternating 
 	// between "yes" and "no" (start with yes)
 	public int dicisionsAlternateAnswer(boolean choice) {
 		return 0;
@@ -132,7 +142,7 @@ class Die extends Life {
 		return "";
 	}	
 	
-	// RETURNS: the list questions one will face if always alternate between
+	// RETURNS: the list questions on will face if always alternate between
 	// "yes" and "no" (start from yes);
 	public ILoQuestion questionAlternateAnswer(boolean choice) {
 		return new MTLoQuestion();
