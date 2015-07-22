@@ -1,0 +1,63 @@
+// lab 03
+
+// Ex 01
+
+
+// REPRESENTS: a book
+interface IBook{
+	
+	// GIVEN: the number that represents today in the library's date-recording 
+	// system
+	// RETURNS: the number of days that this book is overdue
+	int daysOverdue(int today);
+}
+
+// REPRESENTS: a book
+abstract class ABook implements IBook {
+	String title;
+
+	// day that this book is taken out, counted from the day that this library 
+	// opened
+	int dayTaken;
+	int overdueFee; // overdue fee in cents
+	
+	ABook(String title, int dayTaken, int overdueFee) {
+		this.title = title;
+		this.dayTaken = dayTaken;
+		this.overdueFee = overdueFee;
+	}
+	
+	// GIVEN: the number that represents today in the library's date-recording 
+	// system
+	// RETURNS: the number of days that this book is overdue
+	public int daysOverdue(int today);
+}
+
+
+// REPRESENTS: a regular book
+class Book extends ABook {
+	String author;
+	
+	Book(String title, int dayTaken, int overdueFee, String author) {
+		super(title, dayTaken, overdueFee);
+		this.author = author;
+	}
+}
+
+// REPRESENTS: a reference book
+class RefBook extends ABook {
+	RefBook(String title, int dayTaken, int overdueFee) {
+		super(title, dayTaken, overdueFee);
+	}
+}
+
+// REPRESENTS: a audio book
+class AudioBook extends ABook {
+	String author;
+	
+
+}
+
+class IBookExamples {
+
+}

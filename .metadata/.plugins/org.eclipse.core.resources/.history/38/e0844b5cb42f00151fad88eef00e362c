@@ -1,0 +1,42 @@
+// assignment 02
+// Ex 03
+
+import tester.Tester;
+
+// HTDC Ex 3.1
+class RealEstateRecord {
+	String kind; 
+	int room; // number of rooms
+	Address address;
+	int price;
+	
+	public RealEstateRecord(String kind, int room, 
+				Address address, int price) {
+		this.kind = kind;
+		this.room = room;
+		this.address = address;
+		this.price = price;
+	}
+}
+
+class Address {
+	int number; // street number
+	String name; // street name
+	String city; 
+	
+	Address(int number, String name, String city) {
+		this.number = number;
+		this.name = name;
+		this.city = city;
+	}
+}
+
+class RealEatateRecordExamples {
+	Address ad1 = new Address(23, "Maple Street", "Brookline");
+	Address ad2 = new Address(5, "Joye Road", "Newton");
+	Address ad3 = new Address(83, "Winslow Road", "Waltham");
+	
+	RealEstateRecord r1 = new RealEstateRecord("Ranch", 7, ad1, 375000);
+	RealEstateRecord r2 = new RealEstateRecord("Colonial", 9, ad2, 450000);
+	RealEstateRecord r3 = new RealEstateRecord("Cape", 6, ad3, 235000);
+}

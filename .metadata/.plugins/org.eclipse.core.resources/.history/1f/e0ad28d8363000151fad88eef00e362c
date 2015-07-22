@@ -1,0 +1,64 @@
+// lab 03
+// http://www.ccs.neu.edu/course/cs2510su13-1/labs/lab3.html
+// Ex 02
+
+import java.text.AttributedCharacterIterator.Attribute;
+
+import tester.Tester;
+
+// an XML is a ListOf<XMLFragment>
+
+//REPRESENTS: a XML
+interface IXML{}
+
+//REPRESENTS: an empty list of XML fragment
+class MTLoXML implements IXML {
+	public MTLoXML() {}
+}
+
+//REPRESENTS: a non-empty list of XML fragments
+class ConsLoXML implements IXML {
+	IXMLFragment fst;
+	IXML rst;
+	
+	public ConsLoXML(IXMLFragment fst, IXML rst) {
+		this.fst = fst;
+		this.rst = rst;
+	}
+}
+
+
+// REPRESENTS: a XML fragment
+interface IXMLFragment{}
+
+// REPRESENTS: a non tagged XML fragment
+class NoTaggedXML implements IXMLFragment {
+	String planContent; // plan content
+}
+
+// REPRESETNS: a tagged XML fragment
+class TaggedXML implements IXMLFragment {
+	Tag tag;
+	ILoAttributeValuePair attributes;
+//	ILoValue values;
+	IXML xml;
+}
+
+class Tag {
+}
+
+interface ILoAttributeValuePair {}
+class MTLoAttributeValuePair implements ILoAttributeValuePair {
+	public MTLoAttributeValuePair() {}
+}
+class ConsLoAttribute implements ILoAttributeValuePair {
+	Attribute fst;
+	ILoAttributeValuePair rst;
+	
+	public ConsLoAttribute(Attribute fst, ILoAttributeValuePair rst) {
+		this.fst = fst;
+		this.rst = rst;
+	}
+}
+
+ 

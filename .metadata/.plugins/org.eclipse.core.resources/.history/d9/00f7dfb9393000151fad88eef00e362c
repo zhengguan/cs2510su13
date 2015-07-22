@@ -1,0 +1,84 @@
+// lab 03
+// http://www.ccs.neu.edu/course/cs2510su13-1/labs/lab3.html
+// Ex 02
+
+import tester.Tester;
+
+// an XML is a ListOf<XMLFragment>
+
+//REPRESENTS: a XML
+interface ILoXMLFrag{}
+
+//REPRESENTS: an empty list of XML fragment
+class MTLoXML implements ILoXMLFrag {
+	public MTLoXML() {}
+}
+
+//REPRESENTS: a non-empty list of XML fragments
+class ConsLoXML implements ILoXMLFrag {
+	IXMLFragment fst;
+	ILoXMLFrag rst;
+	
+	public ConsLoXML(IXMLFragment fst, ILoXMLFrag rst) {
+		this.fst = fst;
+		this.rst = rst;
+	}
+}
+
+
+// REPRESENTS: a XML fragment
+interface IXMLFragment{}
+
+// REPRESENTS: a non tagged XML fragment
+class NoTaggedXML implements IXMLFragment {
+	String planContent; // plan content
+	
+	public NoTaggedXML(String planContent) {
+		this.planContent = planContent;
+	}
+}
+
+// REPRESETNS: a tagged XML fragment
+class TaggedXML implements IXMLFragment {
+	Tag tag;
+	ILoAttributeValuePair attributes;
+	ILoXMLFrag xml;
+}
+
+class Tag {
+	String tag;
+	
+	Tag(String tag) {
+		this.tag = tag;
+	}
+}
+
+interface ILoAttributeValuePair {}
+class MTLoAttributeValuePair implements ILoAttributeValuePair {
+	public MTLoAttributeValuePair() {}
+}
+class ConsLoAttributeValuePair implements ILoAttributeValuePair {
+	AttributeValuePair fst;
+	ILoAttributeValuePair rst;
+	
+	public ConsLoAttributeValuePair(AttributeValuePair fst, ILoAttributeValuePair rst) {
+		this.fst = fst;
+		this.rst = rst;
+	}
+}
+
+ 
+class AttributeValuePair {
+	String attribute;
+	String value;
+	
+	public AttributeValuePair(String attribute, String value) {
+		this.attribute = attribute;
+		this.value = value;
+	}
+}
+
+class XMLExamples {
+	IXMLFragment xmlf1 = new NoTaggedXML("I am XML!");
+//	IXML
+}
