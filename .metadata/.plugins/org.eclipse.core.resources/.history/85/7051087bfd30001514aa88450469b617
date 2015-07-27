@@ -1,0 +1,65 @@
+import javalib.funworld.*;
+import javalib.worldimages.*;
+import javalib.colors.*;
+import tester.Tester;
+
+//the world of a single dropping block
+class BlockWorld extends World {
+	IColor BACKGROUND = new Blue();
+	DrpBlock block;
+	BlockWorld(DrpBlock block) {
+		this.block = block;
+	}
+	//drop the block in this world
+	public World onTick() {
+		return new BlockWorld(this.block.drop());
+	}
+	//drop the block in this world
+	public World onKeyEvent(String ke) {
+		return this;
+	}
+	//draw this world¡¯s block into the canvas
+//	boolean draw() {
+//		return this.drawBackground()
+//				&& this.block.draw(this.theCanvas);
+//	}
+	
+	//draw this world¡¯s block into the canvas
+	public WorldImage makeImage() {
+		return new OverlayImagesXY(this.drawBackground(), this.block.draw(), 
+				this.block.x, this.block.y);
+	}
+	//paint the entire canvas BACKGROUND
+	WorldImage drawBackground() {
+//		return this.theCanvas.drawRect(new Posn(0,0),. . . ,. . . ,. . . );
+		return new RectangleImage(new Posn(250, 250), 500, 500, this.BACKGROUND);
+	}
+}
+
+class DrpBlock {
+	int x;
+	int y;
+	int deltY = 3;
+	
+	DrpBlock(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	public DrpBlock drop() {
+		return new DrpBlock(this.x, this.y + this.deltY); 
+	}
+	
+	public WorldImage draw() {
+		return new RectangleImage(new Posn(x, y), 20, 20, new Red());
+	}
+}
+
+class BlockWorldExamples {
+	public static void main(String[] args) {
+		DrpBlock db = new DrpBlock(250, 0);
+		BlockWorld world = new BlockWorld(db);
+		world.bigBang(1000, 1000, 0.1);
+		return;
+	}
+}

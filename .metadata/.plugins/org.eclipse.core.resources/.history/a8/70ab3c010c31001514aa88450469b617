@@ -1,0 +1,150 @@
+import javalib.funworld.*;
+import javalib.worldimages.*;
+import javalib.colors.*;
+import tester.Tester;
+
+//the world of a single dropping block
+class BlockWorld extends World {
+	IColor BACKGROUND = new Blue();
+	DrpBlock block;
+	int WIDTH = 500; // canvas width
+	int HEIGHT = 500; // canvas height
+	BlockWorld(DrpBlock block) {
+		this.block = block;
+	}
+	//drop the block in this world
+	public World onTick() {
+		return new BlockWorld(this.block.drop());
+	}
+
+	//move the block in this world acoording the key input
+	public World onKeyEvent(String ke) {
+		return new BlockWorld(this.block.steer(ke));
+	}
+	
+
+
+	//draw this world¡¯s block into the canvas
+//	boolean draw() {
+//		return this.drawBackground()
+//				&& this.block.draw(this.theCanvas);
+//	}
+	
+	//draw this world¡¯s block into the canvas
+	public WorldImage makeImage() {
+		return new OverlayImagesXY(this.drawBackground(), this.block.draw(), 
+				this.block.x, this.block.y);
+	}
+
+	//paint the entire canvas BACKGROUND
+	WorldImage drawBackground() {
+		return new RectangleImage(new Posn(this.WIDTH / 2, this.HEIGHT / 2),
+				this.WIDTH, this.HEIGHT, this.BACKGROUND);
+	}
+}
+
+class DrpBlock {
+	int x;
+	int y;
+	int deltY = 3;
+	int deltX = 3;
+	
+	DrpBlock(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	public DrpBlock drop() {
+		return new DrpBlock(this.x, this.y + this.deltY); 
+	}
+	
+	public WorldImage draw() {
+		return new RectangleImage(new Posn(x, y), 20, 20, new Red());
+	}
+	
+	// RETURNS: a drop block moved according to the input key event
+	public DrpBlock steer(String ke) {
+		if(ke.equals("left")) {
+			return new DrpBlock(x - deltX, y);
+		}
+		else if(ke.equals("right")) {
+			return new DrpBlock(x + deltX, y);
+		} 
+		else {
+			return this;
+		}
+	}
+}
+
+class BlockWorldExamples {
+	public static void main(String[] args) {
+		DrpBlock db = new DrpBlock(250, 250);
+		BlockWorld world = new BlockWorld(db);
+		world.bigBang(1000, 1000, 0.1);
+		return;
+	}
+}
+
+/******************************************************************************/
+// List
+
+interface IList<I> {
+	// RETURNS: a list that contains all elements get from applying f.process()
+	// to elements in this list
+	IList<I> map(IFun<I> f);
+}
+
+class MT<I> implements IList<I> {
+	MT() {		
+	}
+	
+	// RETURNS: a list that contains all elements get from applying f.process()
+	// to elements in this list
+	public IList<I> map(IFun<I> f) {
+		return this;
+	}
+}
+
+class Cons<I> implements IList<I> {
+	I fst;
+	IList<I> rst;
+	Cons(I fst, IList<I> rst) {
+		this.fst = fst;
+		this.rst = rst;
+	}
+	
+	// RETURNS: a list that contains all elements get from applying f.process()
+	// to elements in this list
+	public IList<I> map(IFun<I> f) {
+		return new Cons<I>(f.process(this.fst), this.rst.map(f));
+	}
+}
+
+interface IFun<I> {
+	// RETURNS: a new I from the given item
+	I process(I item);
+}
+
+class Add1 implements IFun<Integer> {
+	public Integer process(Integer item) {
+		return item + 1;
+	}
+}
+
+class Sub1 implements IFun<Integer> {
+	public Integer process(Integer item) {
+		return item - 1;
+	}
+}
+
+class ListExamples {
+	public static void main(String[] args) {
+		IList<Integer> mtlon = new MT<Integer>();
+		IList<Integer> lon1 = new Cons<Integer>(1, mtlon);
+		IList<Integer> lon2 = new Cons<Integer>(2, lon1);
+		System.out.println(mtlon.map(new Add1()));
+		System.out.println(mtlon.map(new Sub1()));
+	}
+	
+	
+}

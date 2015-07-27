@@ -3,36 +3,36 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="273" key="DIALOG_WIDTH"/>
 		<item value="137" key="DIALOG_Y_ORIGIN"/>
-		<item value="1037" key="DIALOG_X_ORIGIN"/>
 		<item value="400" key="DIALOG_HEIGHT"/>
+		<item value="1037" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="true" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="renameTag(" key="selection"/>
+		<item value="(this.lon" key="selection"/>
 		<list key="findhistory">
+			<item value="(lon"/>
+			<item value="(mtlon"/>
+			<item value="mtlon"/>
 			<item value="renameTag("/>
 			<item value="muteYell"/>
 			<item value="abstract"/>
 			<item value="xml"/>
 			<item value="mtLoXML"/>
-			<item value="implements"/>
-			<item value="IVehicle"/>
-			<item value="decisions can make"/>
 		</list>
 		<list key="replacehistory">
+			<item value="(this.lon"/>
+			<item value="(this.mtlon"/>
+			<item value="this.mtlon"/>
 			<item value="renameTag(src, dst"/>
 			<item value="renameTag"/>
 			<item value="abstract public"/>
 			<item value="this.xml"/>
 			<item value="this.mtLoXML"/>
-			<item value="extends"/>
-			<item value="Vehicle"/>
-			<item value="decisions one can make"/>
 		</list>
 	</section>
 </section>
