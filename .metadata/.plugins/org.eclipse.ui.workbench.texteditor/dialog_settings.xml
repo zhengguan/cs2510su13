@@ -3,36 +3,36 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="273" key="DIALOG_WIDTH"/>
 		<item value="137" key="DIALOG_Y_ORIGIN"/>
-		<item value="400" key="DIALOG_HEIGHT"/>
 		<item value="1037" key="DIALOG_X_ORIGIN"/>
+		<item value="400" key="DIALOG_HEIGHT"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="true" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="(this.lon" key="selection"/>
+		<item value="ConsX&lt;Integer&gt;" key="selection"/>
 		<list key="findhistory">
+			<item value="ConsX&lt;X&gt;"/>
+			<item value="Cons"/>
+			<item value="ILoI"/>
 			<item value="(lon"/>
 			<item value="(mtlon"/>
 			<item value="mtlon"/>
 			<item value="renameTag("/>
 			<item value="muteYell"/>
-			<item value="abstract"/>
-			<item value="xml"/>
-			<item value="mtLoXML"/>
 		</list>
 		<list key="replacehistory">
+			<item value="ConsX&lt;Integer&gt;"/>
+			<item value="ConsX&lt;X&gt;"/>
+			<item value="ILoX&lt;Integer&gt;"/>
+			<item value="Cons&lt;Integer&gt;"/>
 			<item value="(this.lon"/>
 			<item value="(this.mtlon"/>
 			<item value="this.mtlon"/>
 			<item value="renameTag(src, dst"/>
-			<item value="renameTag"/>
-			<item value="abstract public"/>
-			<item value="this.xml"/>
-			<item value="this.mtLoXML"/>
 		</list>
 	</section>
 </section>

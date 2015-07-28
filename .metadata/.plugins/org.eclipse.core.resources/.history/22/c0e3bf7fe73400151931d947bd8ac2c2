@@ -1,0 +1,65 @@
+import tester.Tester;
+
+// lab05
+// http://www.ccs.neu.edu/course/cs2510su13-1/labs/lab5.html
+
+// Ex 03~08
+
+// Represents a computation over a list of X, producing an R.
+interface ListVisitor<X,R> {
+	R visitEmpty();
+	R visitCons(X first, List<X> rest);
+}
+
+// Represents a list of X
+interface List<X> {
+	// Accept visitor and compute.
+	<R> R accept(ListVisitor<X,R> v);
+}
+
+class Empty<X> implements List<X> {
+	Empty() {}
+
+	public <R> R accept(ListVisitor<X,R> v) {
+		return v.visitEmpty();
+	}
+}
+
+class Cons<X> implements List<X> {
+	X first;
+	List<X> rest;
+
+	Cons(X first, List<X> rest) {
+		this.first = first;
+		this.rest = rest;
+	}
+
+
+	public <R> R accept(ListVisitor<X,R> v) {
+		return v.visitCons(this.first, this.rest);
+	}
+}
+
+class StringAggregateLength implements ListVisitor<String, Integer> {
+	public Integer visitEmpty() {
+		return 0;
+	}
+	public Integer visitCons(String first, List<String> rest) {
+		return first.length() + rest.accept(this);
+	}
+}
+
+class ListExamples {
+	// tests for class StringAggregateLength
+	boolean testStrignAggregateLength(Tester t) {
+		List<String> mt = new Empty<String>();
+		List<String> los1 = new Cons<String>("hello", mt);
+		List<String> los2 = new Cons<String>("world!", los1);
+		StringAggregateLength sumLength = new StringAggregateLength();
+		return
+		t.checkExpect(mt.accept(sumLength), 0) &&
+		t.checkExpect(los1.accept(sumLength), 5) &&
+		t.checkExpect(los2.accept(sumLength), 10);
+	}
+	
+}
