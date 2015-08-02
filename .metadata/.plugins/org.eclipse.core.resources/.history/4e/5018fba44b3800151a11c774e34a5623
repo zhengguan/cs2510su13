@@ -1,0 +1,72 @@
+import java.awt.event.ItemListener;
+
+import tester.Tester;
+
+// lab 06 
+// http://www.ccs.neu.edu/course/cs2510su13-1/labs/lab6.html
+
+// Ex 01
+
+// REPRESENTS: a list
+interface IList <X> {
+	// RETURNS: a list like this one, but with the given elements added
+	IList<X> add(X elem);
+}
+
+class Mt <X> implements IList<X> {
+	Mt() {}
+	
+	// RETURNS: a list like this one, but with the given elements added
+	public IList<X> add(X elem) {
+		return new ConsList<X>(elem, this); 
+	}
+}
+
+class ConsList <X> implements IList<X> {
+	X fst;
+	IList<X> rst;
+	
+	ConsList(X fst, IList<X> rst) {
+		this.fst = fst;
+		this.rst = rst;
+	}
+	
+	// RETURNS: a list like this one, but with the given elements added
+	public IList<X> add(X elem) {
+		return new ConsList<X>(elem, this);
+	}
+}
+
+// REPRESENTS: a set
+class Set1<X> {
+	IList<X> elements;
+	
+	
+	Set1(IList<X> elements) {
+		this.elements = elements;
+	}
+	
+	Set1() {
+		this.elements = new Mt<X>();
+	}
+	
+	// RETURNS: a set like this one, but elem added  
+	Set1<X> add(X elem) {
+		return new Set1<X>(this.elements.add(elem));
+	}
+	
+}
+
+class Set1Examples {
+	IList<Integer> mt = new Mt<Integer>();
+	Set1<Integer> mtSet1 = new Set1<Integer>();
+	Set1<Integer> s2 = mtSet1.add(1);
+	Set1<Integer> s3 = s2.add(2);
+	Set1<Integer> s4 = s3.add(1);
+	
+	// tests for method add()
+	boolean testAdd(Tester t) {
+		return
+		true;
+	}
+}

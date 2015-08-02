@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="ConsLoXMLFragment"/>
-<fullyQualifiedTypeName name="TaggedXMLFragment"/>
 <fullyQualifiedTypeName name="javalib.colors.IColor"/>
 <fullyQualifiedTypeName name="javalib.worldimages.WorldImage"/>
 <fullyQualifiedTypeName name="javalib.colors.Red"/>
@@ -53,11 +51,13 @@
 <fullyQualifiedTypeName name="IsContainString"/>
 <fullyQualifiedTypeName name="StringAggregateLength"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="tester.Tester"/>
 <fullyQualifiedTypeName name="ConcateString"/>
 <fullyQualifiedTypeName name="ListVisitor"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="List"/>
 <fullyQualifiedTypeName name="Cons"/>
 <fullyQualifiedTypeName name="HasGreater"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="AClass"/>
+<fullyQualifiedTypeName name="BClass"/>
+<fullyQualifiedTypeName name="tester.Tester"/>
 </qualifiedTypeNameHistroy>

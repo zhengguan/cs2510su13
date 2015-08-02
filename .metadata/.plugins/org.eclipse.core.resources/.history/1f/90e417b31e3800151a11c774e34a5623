@@ -1,0 +1,42 @@
+import java.awt.print.Book;
+
+// Section 24 of HTDC
+
+// REPRESENTS: a list of books
+interface IBooks {}
+
+// REPRESENTS: am empty list of books
+class MtBooks implements IBooks {
+	
+}
+
+// REPRESENTS: a non-empty list of books
+class ConsBooks implements IBooks {
+	Book fst;
+	IBooks rst;
+	
+	ConsBooks(Book fst, IBooks rst) {
+		this.fst = fst;
+		this.rst = rst;
+	}
+}
+
+
+
+// REPRESENTS: an author
+class Author {
+	String fst;
+	String lst;
+	int dob;
+	IBooks bk = new MtBooks();
+	
+	Author(String fst, String lst, int dob) {
+		this.fst = fst;
+		this.lst = lst;
+		this.dob = dob;
+	}
+	
+	void addBook(Book bk) {
+		this.bk = new ConsBooks(bk, this.bk);
+	}
+}

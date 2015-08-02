@@ -1,0 +1,47 @@
+import tester.Tester;
+
+// some tests on overloading constructor
+
+class AClass {
+	int x;
+	int y;
+	
+	AClass() {
+		this.x = 0;
+		this.y = 0;
+	}
+	
+	private AClass(int x, int y) {
+		this.x = x;
+		this.y = x;
+	}
+	
+//	AClass(Integer x, Integer y) {
+//		this.x = y;
+//		this.y = y;
+//	}
+}
+
+class BClass {
+	boolean flag;
+	private AClass a;
+	
+	BClass(boolean flag, AClass a) {
+		this.flag = flag;
+		this.a = a;
+	}	
+	
+	public AClass getA() {
+		return a;
+	}
+}
+
+class ConstructorExamples{
+	boolean test(Tester t) {
+		AClass a1 = new AClass();
+		BClass b1 = new BClass(true, a1);
+		b1.getA().x = 1;
+		b1.a = null;
+		return true;
+	}
+}
