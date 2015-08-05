@@ -1,0 +1,22 @@
+import tester.*;
+
+
+// runs tests for the buddies problem
+public class ExamplesBuddies{
+  public ExamplesBuddies(){};
+  
+  Person ann  = new Person("Ann");
+  Person bob = new Person("Bob");
+  Person cole = new Person("Cole");
+  Person dan = new Person("Dan");
+  Person ed = new Person("Ed");
+  Person fay = new Person("Fay");
+  Person gabi = new Person("Gabi");
+  Person hank = new Person("Hank");
+  Person jan = new Person("Jan");
+  Person kim = new Person("Kim");
+  Person len = new Person("Len");
+  
+
+  
+}

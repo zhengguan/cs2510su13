@@ -1,0 +1,26 @@
+// represents a list of Person's buddies
+class ConsLoBuddy implements ILoBuddy {
+
+  Person first;
+  ILoBuddy rest;
+  
+  ConsLoBuddy(Person first, ILoBuddy rest) {
+    this.first = first;
+    this.rest = rest;
+  }
+    
+	// RETURNS: true iff this list contains the given person
+	public boolean contains(Person p) {
+		return (this.first.equals(p)) || this.rest.contains(p);
+	}
+	
+	// RETURNS: the number of common buddies in this list and that list
+	public int countCommonBuddies(ILoBuddy that) {
+		if(that.contains(this.first)) {
+			return 1 + this.rest.countCommonBuddies(that);
+		}
+		else {
+			return this.rest.countCommonBuddies(that);
+		}
+	}
+}
