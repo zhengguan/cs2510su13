@@ -1,0 +1,28 @@
+package lab11;
+
+import static org.junit.Assert.*;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class PosnTest {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+    public void testPosn(){
+//        assertEquals(Math.sqrt(16), 4.0);
+//        assertEquals(Math.pow(2, 10), 1024.0);
+//        assertEquals(new Posn(2, 4), new Posn(2, 4));
+		assertEquals(Math.sqrt(16), 4.0, 0.1);
+        
+        // Tests for the Dist method
+        /* ... */
+        
+        // Tests for the Move method
+        /* ... */
+    }   
+}
