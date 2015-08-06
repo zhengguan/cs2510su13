@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="LoI"/>
-<fullyQualifiedTypeName name="MT"/>
-<fullyQualifiedTypeName name="ILoI"/>
-<fullyQualifiedTypeName name="LoX"/>
-<fullyQualifiedTypeName name="ConsX"/>
-<fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="IBT"/>
 <fullyQualifiedTypeName name="IZooAnimal"/>
 <fullyQualifiedTypeName name="Animal"/>
 <fullyQualifiedTypeName name="AZooAnimal"/>
@@ -43,7 +36,6 @@
 <fullyQualifiedTypeName name="javax.swing.border.EmptyBorder"/>
 <fullyQualifiedTypeName name="Cons"/>
 <fullyQualifiedTypeName name="javassist.bytecode.analysis.Util"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="Set1"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.util.Comparator"/>
@@ -60,4 +52,12 @@
 <fullyQualifiedTypeName name="ConsLoBuddy"/>
 <fullyQualifiedTypeName name="ILoBuddy"/>
 <fullyQualifiedTypeName name="tester.Tester"/>
+<fullyQualifiedTypeName name="java.lang.AssertionError"/>
+<fullyQualifiedTypeName name="org.junit.Assert"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="lab11.PosnTest"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="org.junit.Ignore"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="Posn"/>
 </qualifiedTypeNameHistroy>
