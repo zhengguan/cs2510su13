@@ -1,0 +1,26 @@
+
+// Represents the empty List of Accounts
+public class MtLoA implements ILoA{
+    
+    MtLoA(){}
+    
+    // EFFECT: deposit the given amount of funds to the account with
+    // the given account number.
+    public void depositTo(int accountNum, int funds) {
+    	throw new RuntimeException("MtLoA.depositTo(): No account " + accountNum);
+    }
+    
+    // EFFECT: withdraw the given amount of money from the account with
+    // the given account number
+    public void withdrawFrom(int accountNum, int funds) {
+    	throw new RuntimeException("MtLoA.withdrawFrom(): No account " + accountNum);    	
+    }
+    
+    // RETURNS: the account in this list whose account number is equal to the
+    // given one.
+    public Account getAccount(int accountNum) {
+    	throw new RuntimeException(
+    			"MtLoA.getAccount: No account " + accountNum);
+    }
+}
+

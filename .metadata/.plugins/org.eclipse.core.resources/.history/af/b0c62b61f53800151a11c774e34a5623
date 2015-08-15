@@ -1,9 +1,0 @@
-
-// represents a list of Person's buddies
-interface ILoBuddy {
-	// RETURNS: true iff this list contains the given person
-	boolean contains(Person p);
-	
-	// RETURNS: the number of common buddies in this list and that list
-	int countCommonBuddies(ILoBuddy that);
-}

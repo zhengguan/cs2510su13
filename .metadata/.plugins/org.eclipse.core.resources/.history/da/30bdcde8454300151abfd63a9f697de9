@@ -1,0 +1,12 @@
+
+// Represents a List of Accounts
+public interface ILoA{
+    // EFFECT: deposit the given amount of funds to the account with
+    // the given account number.
+    void depositTo(int accountNum, int funds);
+    
+    // EFFECT: withdraw the given amount of money from the account with
+    // the given account number
+    void withdrawFrom(int accountNum, int funds);
+}
+

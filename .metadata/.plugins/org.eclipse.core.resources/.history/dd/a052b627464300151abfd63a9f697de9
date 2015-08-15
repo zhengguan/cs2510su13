@@ -1,0 +1,49 @@
+
+// Represents a non-empty List of Accounts...
+public class ConsLoA implements ILoA{
+
+    Account first;
+    ILoA rest;
+
+    public ConsLoA(Account first, ILoA rest){
+        this.first = first;
+        this.rest = rest;
+    }
+    
+    /* Template
+     *  Fields:
+     *    ... this.first ...         --- Account
+     *    ... this.rest ...          --- ILoA
+     *
+     *  Methods:
+     *
+     *  Methods for Fields:
+     *
+     */
+    
+    // EFFECT: deposit the given amount of funds to the account with
+    // the given account number.
+    public void depositTo(int accountNum, int funds) {
+    	if(this.first.isAccount(accountNum)) {
+    		this.first.deposit(funds);
+    		return;
+    	}
+    	else {
+    		this.rest.depositTo(accountNum, funds);
+    		return;
+    	}
+    }
+    
+    // EFFECT: withdraw the given amount of money from the account with
+    // the given account number
+    public void withdrawFrom(int accountNum, int funds) {
+    	if(this.first.isAccount(accountNum)) {
+    		this.first.withdraw(funds);
+    		return;
+    	}
+    	else {
+    		this.rest.withdrawFrom(accountNum, funds);
+    		return;
+    	}
+    }
+}

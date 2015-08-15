@@ -1,0 +1,12 @@
+
+// Represents a List of Accounts
+public interface ILoA{
+    // RETURNS: the account in this list whose account number is equal to the
+    // given one.
+    Account getAccount(int accountNum);
+    
+    // EFFECT: remove account in this list whose account number equal to the 
+    // given one
+    void remove(int accountNum);
+}
+

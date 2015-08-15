@@ -1,7 +1,0 @@
-
-// represents an empty list of Person's bussies
-class MTLoBuddy implements ILoBuddy {
-  MTLoBuddy() {}
- 
- 
-}

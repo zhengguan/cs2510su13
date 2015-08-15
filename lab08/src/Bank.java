@@ -1,0 +1,42 @@
+
+// Represents a Bank with list of accounts
+public class Bank {
+    
+    private String name;
+    private ILoA accounts;
+    
+    public Bank(String name){
+        this.name = name;
+
+        // Each bank starts with no accounts
+        this.accounts = new MtLoA();
+    }
+    
+    // EFFECT: Add a new account to this Bank
+    public void add(Account acct){ 
+    	this.accounts = new ConsLoA(acct, this.accounts);
+    }
+    
+    // RETURNS: accounts of this bank
+    public ILoA getAccount() {
+    	return this.accounts;
+    }
+    
+    // EFFECT: deposit the given amount of funds to the account with
+    // the given account number.
+    public void depositTo(int accountNum, int funds) {
+    	this.accounts.getAccount(accountNum).deposit(funds);
+    }
+    
+    // EFFECT: withdraw the given amount of money from the account with
+    // the given account number
+    public void withdrawFrom(int accountNum, int funds) {
+    	this.accounts.getAccount(accountNum).withdraw(funds);
+    }
+    
+    // EFFECT: remove the account in this that has the given account number
+    public void removeAccount(int accountNum) {
+    	this.accounts = this.accounts.remove(accountNum);
+    }
+
+}
