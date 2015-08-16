@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+
+import tester.Tester;
+
+// Ex 06 ~ 09
+interface Predicate<T> {
+	// Does this predicate hold for t?
+	Boolean apply(T t);
+}
+
+public class Map<T> {
+	Operation<T, Boolean> op = new Operation<T, Boolean>();
+	
+	private class PredComb<T> implements Predicate<T> {
+		Predicate<T> p;
+		
+		PredComb(Predicate<T> p) {
+			this.p = p;
+		}
+		
+		public Boolean apply(T t) {
+			return this.p.apply(t);
+		}
+	}
+	
+	Boolean ormap(ArrayList<T> is, Predicate<T> p) {
+		return op.foldl(is, false, new PredComb<T>(p));
+	}
+}

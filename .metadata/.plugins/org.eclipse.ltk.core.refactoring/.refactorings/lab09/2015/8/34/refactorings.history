@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Map.PredComb&apos; to &apos;OrComb&apos;&#x0D;&#x0A;- Original project: &apos;lab09&apos;&#x0D;&#x0A;- Original element: &apos;Map.PredComb&apos;&#x0D;&#x0A;- Renamed element: &apos;Map.OrComb&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;PredComb&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{Map.java[Map[PredComb" matchStrategy="1" name="OrComb" qualified="false" references="true" similarDeclarations="false" stamp="1439731668157" textual="false" version="1.0"/>
+</session>

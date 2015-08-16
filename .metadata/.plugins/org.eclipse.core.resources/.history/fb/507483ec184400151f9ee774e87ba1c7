@@ -1,0 +1,21 @@
+import java.util.ArrayList;
+
+import tester.Tester;
+
+// Ex 06 ~ 09
+interface Predicate<T> {
+	// Does this predicate hold for t?
+	Boolean apply(T t);
+}
+
+public class Map<T> {
+	Operation<T, Boolean> op = new Operation<T, Boolean>();
+	
+	Boolean ormap(ArrayList<T> is, Predicate<T> p) {
+		return op.foldl(is, false, new Combiner<T, Boolean>() {
+			public Boolean combine(T t, Boolean rst) {
+				return p.apply(t) || rst;
+			}
+		}
+	}
+}

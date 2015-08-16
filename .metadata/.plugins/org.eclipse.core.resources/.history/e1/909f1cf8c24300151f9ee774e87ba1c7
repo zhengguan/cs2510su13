@@ -1,0 +1,13 @@
+import java.util.*;
+import tester.Tester;
+
+interface Combiner<A, B> {
+	// Combina an A and B into a B
+	B combine(A a, B b);
+}
+
+class Operation<A, B> {
+	B foldr(ArrayList<A> is, B base, Combiner<A, B> f) {
+		
+	}
+}
