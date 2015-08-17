@@ -7,6 +7,6 @@
 <listEntry value="4"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="tester.Main"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="ListOpExamples"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="MapExamples"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="lab09"/>
 </launchConfiguration>

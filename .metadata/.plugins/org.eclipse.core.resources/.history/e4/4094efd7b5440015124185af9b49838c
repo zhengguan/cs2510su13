@@ -1,0 +1,65 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import tester.Tester;
+
+// Ex 06 ~ 09
+interface Predicate<T> {
+	// Does this predicate hold for t?
+	Boolean apply(T t);
+}
+
+public class Map<T> {
+	Operation<T, Boolean> OP = new Operation<T, Boolean>();
+	
+	private class OrComb<T> implements Combiner<T, Boolean> {
+		Predicate<T> p;
+		
+		OrComb(Predicate<T> p) {
+			this.p = p;
+		}
+		
+		public Boolean combine(T t, Boolean rst) {
+			return this.p.apply(t) || rst;
+		}
+	}
+	
+	Boolean ormap(ArrayList<T> is, Predicate<T> p) {
+		return OP.foldl(is, false, new OrComb<T>(p));
+	}	
+}
+
+class MapExamples {	
+	Map<Integer> map = new Map<Integer>();
+	ArrayList<Integer> mt = new ArrayList<Integer>();
+	ArrayList<Integer> oddl = new ArrayList<Integer>();
+	ArrayList<Integer> evenl = new ArrayList<Integer>();
+	Predicate<Integer> isOdd = new Predicate<Integer>() {
+		public Boolean apply(Integer i) {
+			return i % 2 == 1;
+		}
+	};  
+	
+	private void reset() {
+		this.map = new Map<Integer>();
+		this.mt = new ArrayList<Integer>();
+		this.oddl = new ArrayList<Integer>();
+		this.oddl.addAll(Arrays.asList(new Integer[] {1, 3, 5}));
+		this.evenl = new ArrayList<Integer>();
+		this.evenl.addAll(Arrays.asList(new Integer[] {2, 4, 6}));
+		this.isOdd = new Predicate<Integer>() {
+			public Boolean apply(Integer i) {
+				return i % 2 == 1;
+			}
+		};		
+	}
+	
+	// tests for ormap
+	public void testOrmap(Tester t) {
+		reset();
+		t.checkExpect(map.ormap(mt, isOdd), false);
+		t.checkExpect(map.ormap(oddl, isOdd), true);
+		t.checkExpect(map.ormap(evenl, isOdd), false);
+		reset();
+	}
+}
