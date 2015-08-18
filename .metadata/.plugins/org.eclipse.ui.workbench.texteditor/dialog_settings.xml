@@ -3,18 +3,19 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="273" key="DIALOG_WIDTH"/>
 		<item value="137" key="DIALOG_Y_ORIGIN"/>
-		<item value="400" key="DIALOG_HEIGHT"/>
 		<item value="860" key="DIALOG_X_ORIGIN"/>
+		<item value="400" key="DIALOG_HEIGHT"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="true" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="(this." key="selection"/>
+		<item value="tests for " key="selection"/>
 		<list key="findhistory">
+			<item value="tests for "/>
 			<item value="("/>
 			<item value="extends"/>
 			<item value="Set2"/>
@@ -22,9 +23,9 @@
 			<item value="ConsX&lt;X&gt;"/>
 			<item value="Cons"/>
 			<item value="ILoI"/>
-			<item value="(lon"/>
 		</list>
 		<list key="replacehistory">
+			<item value="tests for method "/>
 			<item value="(this."/>
 			<item value="Set3"/>
 			<item value="Set2"/>
@@ -32,7 +33,6 @@
 			<item value="ConsX&lt;X&gt;"/>
 			<item value="ILoX&lt;Integer&gt;"/>
 			<item value="Cons&lt;Integer&gt;"/>
-			<item value="(this.lon"/>
 		</list>
 	</section>
 </section>

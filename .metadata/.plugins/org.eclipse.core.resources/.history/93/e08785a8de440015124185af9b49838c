@@ -1,0 +1,186 @@
+// lab10
+
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Map;
+
+import tester.Tester;
+import javalib.colors.Green;
+import javalib.colors.IColor;
+import javalib.colors.Red;
+import javalib.funworld.World;
+import javalib.worldimages.*;
+
+interface Combiner<T, V> {
+	V combine(T t, V rest);
+}
+
+// REPRESENTS: a function [T -> V]
+interface Func<T, V> {
+	V apply(T t);
+}
+
+class Operation {
+	// RETURNS: combination of all elements in lot with base from right to left
+	public <T, V> V foldr(ArrayList<T> lot, V base, Combiner<T, V> f) {
+		return foldrHelper(lot, 0, base, f);
+	}
+	
+	// RETURNS: the combination of all elements in lot[start,) with rest from
+	// right to left
+	private <T, V> V foldrHelper(ArrayList<T> lot, int start, 
+			V rest, Combiner<T, V> f) {
+		if(start == lot.size()) {
+			return rest;			
+		}
+		else {
+			return
+				foldrHelper(lot, start + 1, 
+						f.combine(lot.get(start), rest), f);
+		}
+	}
+	
+	// RETURNS: a list result that contains the result of applying f to each 
+	// element of lot, all elements in result are at the same position as
+	// their corresponding elements in lot
+	public <T, V> ArrayList<V> map(ArrayList<T> lot, Func<T, V> f) {
+		return mapHelper(lot, 0, f, new ArrayList<V>());
+	}
+	
+	// WHERE: 0 <= start && start <= lot.size();
+	// EFFECT: add the result of applying f to each elements of lot[start,)
+	// to rest
+	private <T, V> ArrayList<V> mapHelper(ArrayList<T> lot, int start, 
+			Func<T, V> f, ArrayList<V> rest) {
+		if(start == lot.size()) {
+			return rest;
+		}
+		else {
+			T e = lot.get(start);			
+			rest.add(f.apply(e));
+			return
+				mapHelper(lot, start + 1, f, rest);
+		}
+	}
+}
+
+class MyCircle extends CircleImage {
+	int DELTA_Y;
+	
+	MyCircle(Posn pinhole, int radius, IColor c) {
+		super(pinhole, radius, c);
+		this.DELTA_Y = 5;
+	}
+	
+	MyCircle(Posn pinhole, int radius, Color c) {
+		super(pinhole, radius, c);
+		DELTA_Y = 5;
+	}
+	
+	private MyCircle(Posn pinhole, int radius, Color c, int deltaY) {
+		super(pinhole, radius, c);
+		DELTA_Y = deltaY;
+	}
+	
+	MyCircle getMoveImage(int dy, int xBorder, int yBorder) {
+		int newY = this.pinhole.y + dy;		
+		if (newY < 0 + radius) {
+			newY = radius;
+		}
+		else if (newY > yBorder - radius) {
+			newY = yBorder - radius;		
+			return new MyCircle(new Posn(pinhole.x, newY), radius, color, -DELTA_Y);
+		}		
+		return new CircleImage(new Posn(pinhole.x, newY), radius, color);
+	}
+	
+}
+
+class SimpleWorld extends World {
+	private ArrayList<CircleImage> loc;
+	private IColor CIRCLE_COLOR = new Red();
+	private int CIRCLE_RADIUS = 10;
+	private int CIRCLE_X = 100;
+	private Operation OP = new Operation();
+	private int CANVAS_WIDTH;
+	private int CANVAS_HEIGHT;
+	
+	SimpleWorld() {
+//		this.c1 = new CircleImage(new Posn(100, 0), 10, new Green());
+		this.loc = new ArrayList<CircleImage>();
+		this.loc.add(new CircleImage(new Posn(100, 0), CIRCLE_RADIUS, 
+				CIRCLE_COLOR));
+		this.loc.add(new CircleImage(new Posn(200, 0), CIRCLE_RADIUS, 
+				CIRCLE_COLOR));
+	}
+	
+	private SimpleWorld(ArrayList<CircleImage> loc) {
+//		this.c1 = c1;
+		this.loc = loc;
+	}
+	
+	public WorldImage makeImage() {
+		return makeImageHelper(1, loc.get(0));
+	}
+	
+	// WHERE: 0 <= start && start <= this.loc.size()
+	// RETURNS: a world image that contains all circles in this.loc[start, )
+	// and rst
+	private WorldImage makeImageHelper(int start, WorldImage rst) {
+		if (start == loc.size()) {
+			return rst;
+		}
+		else {
+			return makeImageHelper(start + 1, 
+					new OverlayImages(rst, loc.get(start)));
+		}
+	}
+	
+	public SimpleWorld onTick() {
+		Func<CircleImage, CircleImage> funDropCircle = 
+		 new Func<CircleImage, CircleImage>() {
+					public CircleImage apply(CircleImage c) {
+						return (CircleImage) c.getMovedImage(5, 
+								CANVAS_WIDTH, CANVAS_HEIGHT);
+					}
+				};
+		return new SimpleWorld(OP.map(loc,funDropCircle));
+	}
+	
+	public SimpleWorld onKeyEvent(String s) {
+		if (s.equals("c")) {
+			loc.add(new CircleImage(
+						new Posn(CIRCLE_X, 0),
+						CIRCLE_RADIUS,
+						CIRCLE_COLOR));
+			return new SimpleWorld(loc);			
+		}
+		else {
+			return this;
+		}
+	}
+	
+	 public boolean bigBang(int w, int h, double speed) {
+		 initialize_canvas_size(w, h);
+		 return super.bigBang(w, h, speed);
+	 }
+	 
+	 public boolean bigBang(int w, int h) {
+		 initialize_canvas_size(w, h);
+		 return super.bigBang(w, h);
+	 }
+	 
+	 private void initialize_canvas_size(int w, int h) {
+		 CANVAS_WIDTH = w;
+		 CANVAS_HEIGHT = h;
+	 }
+}
+
+class SimpleWorldExamples {
+	int CANVAS_WIDTH = 300;
+	int CANVAS_HEIGHT = 300;
+	
+	SimpleWorldExamples() {
+		new SimpleWorld().bigBang(CANVAS_WIDTH, CANVAS_HEIGHT, 0.1);
+	}
+}
